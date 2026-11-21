@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123d32" />
+    <meta
+      name="description"
+      content="Ruang ujian pengetahuan kepramukaan DAKARA 02."
+    />
+    <title>DAKARA 02 — Ruang Ujian Pramuka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="questions.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="DAKARA 02 beranda">
+        <span class="brand-mark">D<span>02</span></span>
+        <span class="brand-copy"
+          ><strong>DAKARA 02</strong
+          ><small>PRAMUKA • SMPN 2 CIKARANG UTARA</small></span
+        >
+      </a>
+      <div class="header-right">
+        <span class="header-tag"
+          ><span class="live-dot"></span> RUANG UJIAN</span
+        >
+        <button
+          class="ghost-button examiner-open"
+          id="openExaminer"
+          type="button"
+        >
+          Pemeriksa <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-shell" id="top">
+      <section class="intro-screen" id="introScreen">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="eyebrow-line"></span> PENGETAHUAN KEPRAMUKAAN
+            </div>
+            <h1>Latihan pengetahuan<br /><em>kepramukaan.</em></h1>
+            <p class="hero-lead">
+              Kerjakan soal dengan teliti dan mandiri. Pastikan semua jawaban
+              sudah diperiksa sebelum dikirim.
+            </p>
+            <div class="hero-stats">
+              <div><strong>140</strong><span>PERTANYAAN</span></div>
+              <i></i>
+              <div><strong>2</strong><span>MATERI BAB</span></div>
+              <i></i>
+              <div><strong>100%</strong><span>ISIAN</span></div>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-a"></div>
+            <div class="orbit orbit-b"></div>
+            <div class="compass">
+              <span class="compass-n">N</span><span class="compass-e">E</span
+              ><span class="compass-s">S</span><span class="compass-w">W</span>
+              <div class="compass-needle"></div>
+              <div class="compass-center">D</div>
+            </div>
+            <div class="art-note note-top">SIAP • SIGAP • TANGGUH</div>
+            <div class="art-note note-bottom">EST. DAKARA 02</div>
+            <div class="art-star">✳</div>
+          </div>
+        </div>
+
+        <div class="start-layout">
+          <div class="start-info">
+            <span class="section-kicker">SEBELUM MEMULAI</span>
+            <h2>Sebelum mulai.</h2>
+            <p>
+              Isi nama lengkap terlebih dahulu. Soal akan muncul setelah kamu
+              menekan tombol mulai.
+            </p>
+            <div class="instruction-list">
+              <div>
+                <span class="instruction-icon">01</span
+                ><span
+                  ><b>Kerjakan sendiri</b
+                  ><small>Isi jawaban tanpa bantuan orang lain.</small></span
+                >
+              </div>
+              <div>
+                <span class="instruction-icon">02</span
+                ><span
+                  ><b>Tetap di halaman ujian</b
+                  ><small
+                    >Keluar dari tampilan fokus akan masuk catatan.</small
+                  ></span
+                >
+              </div>
+              <div>
+                <span class="instruction-icon">03</span
+                ><span
+                  ><b>Periksa jawaban</b
+                  ><small
+                    >Lihat kembali sebelum menekan tombol kirim.</small
+                  ></span
+                >
+              </div>
+            </div>
+          </div>
+          <form class="start-card" id="startForm">
+            <div class="card-heading">
+              <span class="card-index">01 / IDENTITAS</span
+              ><span class="lock-icon">⌑</span>
+            </div>
+            <h3>Data peserta</h3>
+            <p class="card-subtitle">
+              Gunakan nama lengkap sesuai daftar latihan.
+            </p>
+            <label for="studentName">Nama lengkap</label>
+            <input
+              id="studentName"
+              name="studentName"
+              type="text"
+              placeholder="Masukkan nama lengkap"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+            <label for="baseName">Pangkalan / Sekolah</label>
+            <input
+              id="baseName"
+              name="baseName"
+              type="text"
+              value="SMPN 2 Cikarang Utara"
+              maxlength="100"
+              readonly
+              aria-readonly="true"
+              required
+            />
+            <label for="teamName"
+              >Regu / Kelompok <span class="optional">(opsional)</span></label
+            >
+            <input
+              id="teamName"
+              name="teamName"
+              type="text"
+              placeholder="Nama regu atau kelompok"
+              maxlength="50"
+            />
+            <div class="focus-note">
+              <span>✦</span>
+              <p>
+                <b>Selama ujian</b>, tetap buka halaman ini. Saat keluar dari
+                tampilan fokus, konfirmasi akan muncul dan aktivitasnya bisa
+                dicatat oleh pemeriksa.
+              </p>
+            </div>
+            <button class="primary-button full-button" type="submit">
+              Mulai mengerjakan <span>→</span>
+            </button>
+            <div class="secure-caption">
+              <span>◈</span> Jawaban dikirim ke ruang pemeriksa DAKARA 02
+            </div>
+          </form>
+        </div>
+        <div class="bottom-ribbon">
+          <span>BERANI • DISIPLIN • BERTANGGUNG JAWAB</span
+          ><span>DAKARA 02 <b>✳</b></span>
+        </div>
+      </section>
+
+      <section class="exam-screen hidden" id="examScreen">
+        <div class="exam-topline">
+          <div>
+            <span class="section-kicker">RUANG UJIAN / DAKARA 02</span>
+            <h2 id="welcomeName">Selamat mengerjakan.</h2>
+          </div>
+          <div class="exam-meta">
+            <span class="meta-pill" id="answeredMeta">0 / 140 terjawab</span
+            ><span class="timer-pill" id="timer">00:00</span>
+          </div>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div
+          class="focus-alert"
+          id="focusAlert"
+          role="status"
+          aria-live="polite"
+        >
+          <span>!</span>
+          <div>
+            <b>Jangan tinggalkan halaman ujian.</b
+            ><small
+              >Keluar dari tampilan fokus atau berpindah aplikasi akan masuk
+              catatan pemeriksa.</small
+            >
+          </div>
+          <span class="violation-count" id="violationCount">0 catatan</span>
+        </div>
+        <div class="exam-layout">
+          <aside class="exam-sidebar">
+            <div class="sidebar-block">
+              <span class="section-kicker">PESERTA</span
+              ><strong id="examStudentName">—</strong
+              ><small id="examBaseName">—</small>
+            </div>
+            <div class="sidebar-block chapter-selector">
+              <span class="section-kicker">MATERI</span
+              ><button
+                type="button"
+                class="chapter-chip active"
+                id="chapterOneChip"
+              >
+                <span>01</span><span>Bab 1 & 2<small>40 soal</small></span
+                ><b>›</b></button
+              ><button type="button" class="chapter-chip" id="chapterThreeChip">
+                <span>02</span><span>Bab 3<small>100 soal</small></span
+                ><b>›</b>
+              </button>
+            </div>
+            <div class="sidebar-tip">
+              <span>✳</span>
+              <p>
+                Jawaban tersimpan sementara di perangkat selama halaman ujian
+                terbuka.
+              </p>
+            </div>
+          </aside>
+          <div class="question-area">
+            <div class="question-toolbar">
+              <div>
+                <span class="section-kicker" id="sectionLabel"
+                  >BAB 1 DAN 2</span
+                >
+                <h3 id="pageHeading">Dasar-Dasar Kepramukaan</h3>
+              </div>
+              <span class="page-count" id="pageCount">01 / 14</span>
+            </div>
+            <div id="questionList" class="question-list"></div>
+            <div class="pagination-row">
+              <button
+                type="button"
+                class="secondary-button"
+                id="prevPage"
+                disabled
+              >
+                ← Sebelumnya</button
+              ><span id="pageHint">Halaman 1 dari 14</span
+              ><button type="button" class="primary-button" id="nextPage">
+                Berikutnya →
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="exam-bottom">
+          <span>DAKARA 02 <b>✳</b> • TETAP FOKUS SAMPAI SELESAI</span
+          ><button type="button" class="text-button" id="finishButton">
+            Kirim jawaban <span>↗</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="submitted-screen hidden" id="submittedScreen">
+        <div class="success-seal">✓</div>
+        <span class="section-kicker">JAWABAN TERKIRIM</span>
+        <h2>Terima kasih,<br /><em id="submittedName">Pejuang DAKARA.</em></h2>
+        <p>
+          Jawabanmu sudah diteruskan ke ruang pemeriksa. Tetap semangat dan
+          terus belajar.
+        </p>
+        <div class="submitted-summary" id="submittedSummary"></div>
+        <div class="bottom-ribbon">
+          <span>BERANI • DISIPLIN • BERTANGGUNG JAWAB</span
+          ><span>DAKARA 02 <b>✳</b></span>
+        </div>
+      </section>
+
+      <section class="review-screen hidden" id="reviewScreen">
+        <div class="review-header">
+          <div>
+            <span class="section-kicker">AREA KHUSUS</span>
+            <h2>Ruang pemeriksa.</h2>
+            <p>
+              Masuk menggunakan kode pemeriksa untuk melihat daftar peserta dan
+              memeriksa jawaban.
+            </p>
+          </div>
+          <button type="button" class="ghost-button" id="closeExaminer">
+            ← Kembali
+          </button>
+        </div>
+        <div class="review-login" id="reviewLogin">
+          <span class="card-index">AKSES TERBATAS / DAKARA 02</span>
+          <h3>Masuk sebagai pemeriksa</h3>
+          <label for="reviewCode">Kode pemeriksa</label
+          ><input
+            id="reviewCode"
+            type="password"
+            placeholder="Masukkan kode akses"
+            autocomplete="off"
+          />
+          <button
+            type="button"
+            class="primary-button full-button"
+            id="loadParticipants"
+          >
+            Buka daftar peserta →
+          </button>
+          <p class="form-message" id="reviewMessage"></p>
+        </div>
+        <div class="review-dashboard hidden" id="reviewDashboard">
+          <div class="review-dashboard-head">
+            <div>
+              <span class="section-kicker">DATA MASUK</span>
+              <h3>Daftar peserta</h3>
+            </div>
+            <button
+              type="button"
+              class="secondary-button"
+              id="refreshParticipants"
+            >
+              ↻ Muat ulang
+            </button>
+          </div>
+          <div class="review-stats" id="reviewStats"></div>
+          <div class="review-table-wrap">
+            <table class="review-table">
+              <thead>
+                <tr>
+                  <th>Peserta</th>
+                  <th>Pangkalan</th>
+                  <th>Jawaban</th>
+                  <th>Catatan fokus</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="participantsBody"></tbody>
+            </table>
+          </div>
+          <p class="empty-state hidden" id="emptyParticipants">
+            Belum ada jawaban peserta yang masuk.
+          </p>
+          <div class="answer-detail hidden" id="answerDetail">
+            <div class="detail-heading">
+              <div>
+                <span class="section-kicker">LEMBAR JAWABAN</span>
+                <h3 id="detailName">Nama peserta</h3>
+                <p id="detailMeta"></p>
+              </div>
+              <button class="secondary-button" type="button" id="closeDetail">
+                Tutup ✕
+              </button>
+            </div>
+            <div id="detailAnswers"></div>
+          </div>
+        </div>
+        <div class="bottom-ribbon">
+          <span>AREA KHUSUS PEMERIKSA</span><span>DAKARA 02 <b>✳</b></span>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div
+      class="modal-backdrop hidden"
+      id="focusExitModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="focusModalTitle"
+    >
+      <div class="confirm-card focus-confirm-card">
+        <span class="section-kicker">PEMBERITAHUAN UJIAN</span>
+        <h3 id="focusModalTitle">Keluar dari tampilan fokus?</h3>
+        <p id="focusModalCopy">
+          Kalau kamu memilih keluar, aktivitas ini akan dicatat sebagai membuka
+          aplikasi lain dan bisa dilihat oleh pemeriksa. Kamu yakin ingin
+          keluar?
+        </p>
+        <div class="focus-modal-actions">
+          <button type="button" class="secondary-button" id="focusStayButton">
+            Tetap di ujian
+          </button>
+          <button type="button" class="primary-button" id="focusLeaveButton">
+            Ya, keluar
+          </button>
+          <button
+            type="button"
+            class="primary-button hidden"
+            id="focusResumeButton"
+          >
+            Saya mengerti
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal-backdrop hidden"
+      id="confirmModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirmTitle"
+    >
+      <div class="confirm-card">
+        <span class="section-kicker">SEBELUM MENGIRIM</span>
+        <h3 id="confirmTitle">Sudah yakin dengan jawabanmu?</h3>
+        <p id="confirmCopy">
+          Jawaban yang sudah dikirim tidak dapat diubah dari halaman peserta.
+        </p>
+        <div class="confirm-stats" id="confirmStats"></div>
+        <div class="confirm-actions">
+          <button type="button" class="secondary-button" id="cancelSubmit">
+            Periksa lagi</button
+          ><button type="button" class="primary-button" id="confirmSubmit">
+            Ya, kirim jawaban →
+          </button>
+        </div>
+      </div>
+    </div>
+    <iframe
+      name="submitFrame"
+      id="submitFrame"
+      class="hidden-frame"
+      title="Pengiriman jawaban"
+    ></iframe>
+    <form
+      id="submitForm"
+      class="hidden-frame"
+      method="POST"
+      target="submitFrame"
+    >
+      <input type="hidden" name="payload" id="payloadField" />
+    </form>
+    <footer class="site-footer">
+      <span>© 2026 DAKARA 02</span
+      ><span>Latihan Pramuka • SMPN 2 Cikarang Utara</span>
+    </footer>
+  </body>
+</html>
