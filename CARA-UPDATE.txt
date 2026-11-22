@@ -1,0 +1,41 @@
+PEMBARUAN DAKARA 02 — MULTI UJIAN
+
+A. UPDATE WEBSITE GITHUB PAGES
+1. Ekstrak ZIP ini.
+2. Di repository GitHub pada folder root yang dipakai GitHub Pages, upload/ganti file frontend:
+   - index.html
+   - app.js
+   - style.css
+   - questions.js
+   - questions.json (boleh ikut diganti; hanya file cadangan)
+3. Upload langsung file-file frontend tersebut. Jangan upload folder apps-script ke repository publik dan jangan masukkan lagi ke dalam folder dakara02-website.
+4. Commit changes.
+
+B. UPDATE BACKEND GOOGLE APPS SCRIPT (WAJIB)
+1. Buka Google Sheets DAKARA 02 - HASIL UJIAN.
+2. Ekstensi > Apps Script.
+3. Buka Kode.gs, Ctrl+A, ganti dengan seluruh isi apps-script/Code.gs dari ZIP.
+4. Simpan. Pilih setupSheet lalu Jalankan satu kali. Pastikan muncul tab ExamSets dan ExamQuestions. Tab Submissions lama tetap ada; kolom baru ditambahkan tanpa menghapus baris jawaban lama.
+5. Pilih fungsi setReviewerCode lalu Jalankan. Masukkan kode rahasia yang akan dipakai pada halaman Pemeriksa (boleh gunakan kode yang sebelumnya). Kode disimpan secara privat di Script Properties.
+6. Klik Terapkan > Kelola deployment > ikon edit pada deployment Web App yang sudah ada.
+7. Pada Versi, pilih Versi baru, lalu Terapkan. Tetap gunakan URL /exec yang sama.
+
+PENTING: Jangan upload folder apps-script ke repository publik GitHub. Code.gs hanya ditempel ke editor Apps Script. Sebaiknya hapus folder apps-script yang sebelumnya sudah telanjur diunggah ke repository publik.
+
+C. CARA MEMBUAT UJIAN BARU
+1. Buka website > Pemeriksa > masuk dengan kode pemeriksa yang sudah disimpan.
+2. Pada Paket ujian, tekan Buat ujian.
+3. Isi judul (contoh Ujian 2) dan materi/keterangan.
+4. Upload TXT/CSV atau ketik satu soal per baris.
+   TXT: Pertanyaan | Kunci jawaban | Alternatif 1 | Alternatif 2
+   CSV: kolom pertama Soal, kedua Kunci Jawaban, berikutnya alternatif.
+5. Centang Tampilkan paket ini kepada peserta jika sudah siap ditayangkan.
+6. Simpan. Tombol Tampilkan/Sembunyikan bisa dipakai kapan saja.
+
+D. KOREKSI
+- Soal yang memiliki kunci akan diperiksa otomatis dengan pencocokan teks setelah normalisasi huruf besar/kecil, aksen, spasi, dan tanda baca umum.
+- Isi alternatif jawaban yang diterima pada kolom-kolom berikutnya.
+- Soal uraian atau soal tanpa kunci masuk status Belum dikoreksi dan pemeriksa dapat memilih Benar/Salah secara manual.
+- Tekan Simpan koreksi agar hasilnya masuk ke Google Sheets.
+
+Catatan: Update backend wajib dilakukan. Jika hanya frontend yang diunggah, fitur pembuatan ujian dan koreksi belum dapat menyimpan data ke Google Sheets.
