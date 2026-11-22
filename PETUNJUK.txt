@@ -1,0 +1,14 @@
+DAKARA 02 — PERBAIKAN ANGKA PAKET TERSEDIA
+
+Yang diperbaiki:
+- Angka paket tidak lagi menampilkan angka 1 palsu saat halaman baru dibuka.
+- Selama daftar dimuat, tampil indikator …
+- Jika server gagal dihubungi, jumlah tampil — bukan 0.
+- Jika server benar-benar menjawab tanpa paket yang ditampilkan, jumlah tampil 0 dan peserta diberi petunjuk bahwa pemeriksa harus menekan Tampilkan.
+
+PASANG:
+1. Ganti index.html dan app.js pada root repository GitHub dengan dua file di folder ini.
+2. Commit changes.
+3. Buka GitHub Pages dan tekan Ctrl+F5.
+
+PENTING: Perbaikan ini menghilangkan angka contoh yang menyesatkan. Jika jumlah aktual masih 0, buka halaman Pemeriksa > Kelola Paket Ujian dan tekan Tampilkan pada paket yang ingin dibuka. Paket tersembunyi memang tidak dikirim oleh API publik.
