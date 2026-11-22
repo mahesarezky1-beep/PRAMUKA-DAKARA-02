@@ -1022,11 +1022,14 @@ document.addEventListener('fullscreenchange', () => {
 });
 
 window.addEventListener('message', (event) => {
-  if (event.source !== $('#submitFrame').contentWindow) return;
+  // Google Apps Script dapat mengirim balasan melalui frame internal
+  // (googleusercontent) sehingga event.source tidak selalu sama dengan
+  // submitFrame.contentWindow. Karena itu, cocokkan token acak yang hanya
+  // diketahui oleh permintaan aktif, bukan identitas frame pengirim.
   const data = event.data;
   if (!data || typeof data !== 'object') return;
 
-  if (data.type === 'dakara-submit' && data.nonce === state.pendingNonce) {
+  if (data.type === 'dakara-submit' && state.pendingNonce && data.nonce === state.pendingNonce) {
     if (data.ok) completeSubmission();
     else {
       state.submitted = false;
@@ -1043,7 +1046,7 @@ window.addEventListener('message', (event) => {
     return;
   }
 
-  if (data.type === 'dakara-api' && state.pendingAdminPost && data.requestId === state.pendingAdminPost.requestId) {
+  if (data.type === 'dakara-api' && state.pendingAdminPost && data.requestId && data.requestId === state.pendingAdminPost.requestId) {
     const pending = state.pendingAdminPost;
     state.pendingAdminPost = null;
     if (data.ok) pending.resolve(data.data || {});
